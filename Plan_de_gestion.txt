@@ -133,3 +133,13 @@ Un signal audio, une fois numérisé, consiste en une quantité de valeurs qui
 
 1.8. Tests et maintenance : 
 
+############## Commentaires ##################
+
+Excellent projet!
+
+Il y a peut-être un peu trop d'informations générales (sans implication directe avec le projet) dans ton plan de travail. Par exemple: pas besoin d'expliquer ce qu'est la FFT ou une noise gate, simplement mentionner le rôle qu'elles jouent dans le contexte!
+
+Ensuite, je te conseille de travailler à petite échelle pour commencer. Une ou deux analyses audio sur une source qui contrôle un effet et une synthèse visuelle, avec les contrôles MIDI. Un coup tout le setup en place et fonctionnel (les bugs corrigés), il est assez simple d'ajouter des sources audio, des analyses ou des traitements visuels...
+
+10/10
+
