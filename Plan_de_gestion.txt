@@ -1,114 +1,144 @@
-Projet informatique de programmation musicale
-Plan de travail
-Nicolas Morin
+ Projet informatique de programmation musicale
+ Plan de travail
+ Nicolas Morin
 
 
-1.1. Énoncé : 
- Génération de synthèse visuelle à partir d’audio
+ 1.1. Énoncé : 
+  Génération de synthèse visuelle à partir d’audio
 
-1.2.Description :
- Ce programme vise à générer des images de synthèse à partir de signaux audios pouvant provenir de différentes sources. Les signaux audios pourront être récoltés en entrées soit par un envoie directe d’une piste audio, d’un contrôleur midi ou d’un driver ASIO. L’utilisation d’un contrôleur midi pour modifier les éléments visuels en temps réel, afin de rendre la plateforme plus interactive, y sera également intégré. Enfin, j’aimerais pouvoir intégrer l’image capté par la caméra de l’ordinateur, d’un téléphone portable et/ou d’une caméra externe (comme une Kinect), ainsi que les données gyroscopiques XYZ (via OscHook par exemple) afin d’altérer les images obtenues.
+ 1.2.Description :
+  Ce programme vise à générer des images de synthèse à partir de signaux audios pouvant provenir de différentes sources.
+ Les signaux audios pourront être récoltés en entrées soit par un envoie directe d’une piste audio, d’un contrôleur midi ou d’un driver ASIO.
+ L’utilisation d’un contrôleur midi pour modifier les éléments visuels en temps réel, afin de rendre la plateforme plus interactive,
+ y sera également intégré. Enfin, j’aimerais pouvoir intégrer l’image capté par la caméra de l’ordinateur, d’un téléphone portable et/ou d’une caméra externe
+ (comme une Kinect), ainsi que les données gyroscopiques XYZ (via OscHook par exemple) afin d’altérer les images obtenues.
 
-1.3. Analyse des besoins :
+ 1.3. Analyse des besoins :
 
-- Le programme devra d’abord récolter le son selon la ou les sources désirées soit en entrée du microphone, en entrée midi,
- à même l’ordinateur (media player), soit à partir d’un driver ASIO/carte de son.
--Il devra ensuite analyser le signal à travers différents paramètres (enveloppe follower,
- amplitude par bande de fréquence, phase, etc).
--Les données récoltées à l’étape #2 devront ensuite générer des formes,
- des couleurs, textures, etc, sur des axes X,Y et si possible Z en relation directe
- et ce avec le moins de latence possible.
--En parallèle, j’aimerais faire en sorte que le programme puisse récolter les images
- de caméras afin que celle-ci puissent être intégrés dans l’image de synthèse.
- Ces images seront-elles aussi altérées par les signaux audio/midi avant leur sortie.
--Établir les paramètres de distorsion des images récoltés par les caméras.
--Protocole qui fera un mélange des images obtenues par le mélange de toute les source en entrées.
--Définir les paramètres de sortie visuelle.
-
-
-1.4. Acquisition de connaissances : 
-Recherches sur la programmation en MaxMSP/PureData
-Références :
-https://docs.cycling74.com/max7/tutorials/01_mspintro
-http://msp.ucsd.edu/techniques.htm
-Notes de cours Max/MSP, Faculté de musique de l’université de Montréal, MUS-2321, Olvier Bélanger
-
-Recherches sur la synthèse visuelle :
-Références :
-Article avec liens sur une compagnie qui développé un module de synthèse vidéo analogique.
-https://www.electronicbeats.net/the-feed/enter-trippy-world-video-modular-synths/
-Lien ver la compagnie en question:
-https://lzxindustries.net/
-Lien vers le github de la compagnie qui offre sa documentation (schémas, plans, etc):
-https://github.com/lzxindustries/documentation
-
-Liens de la communauté LZX
-https://community.lzxindustries.net/t/using-audio-modules-in-a-video-synth-system/65/2
-https://community.lzxindustries.net/t/interfacing-with-external-video-sources/47
-https://community.lzxindustries.net/t/what-do-i-need-to-get-started/49
-https://community.lzxindustries.net/t/modular-video-synthesis-101/52
-https://community.lzxindustries.net/t/connecting-your-sync-generator-to-other-modules/28
+ - Le programme devra d’abord récolter le son selon la ou les sources désirées soit en entrée du microphone, en entrée midi,
+  à même l’ordinateur (media player), soit à partir d’un driver ASIO/carte de son.
+ -Il devra ensuite analyser le signal à travers différents paramètres (enveloppe follower,
+  amplitude par bande de fréquence, phase, etc).
+ -Les données récoltées à l’étape #2 devront ensuite générer des formes,
+  des couleurs, textures, etc, sur des axes X,Y et si possible Z en relation directe
+  et ce avec le moins de latence possible.
+ -En parallèle, j’aimerais faire en sorte que le programme puisse récolter les images
+  de caméras afin que celle-ci puissent être intégrés dans l’image de synthèse.
+  Ces images seront-elles aussi altérées par les signaux audio/midi avant leur sortie.
+ -Établir les paramètres de distorsion des images récoltés par les caméras.
+ -Protocole qui fera un mélange des images obtenues par le mélange de toute les source en entrées.
+ -Définir les paramètres de sortie visuelle.
 
 
-Site web d'une application basé sur le même modèle que les lien précédents:
-https://lumen-app.com/
+ 1.4. Acquisition de connaissances : 
+ Recherches sur la programmation en MaxMSP/PureData
+ Références :
+ Documentation et tutoriels sur Max:
+  https://docs.cycling74.com/max7/tutorials/basicchapter01
 
-Page Wikipédia sur la synthèse vidéo:
-https://en.wikipedia.org/wiki/Video_synthesizer
+ Documentation/tutoriels sur Jitter:
+  https://docs.cycling74.com/max7/tutorials/jitterchapter01
 
-Pade web dédié à introduire la synthèse vidéo:
-https://analoguezone.com/blog/introduction-to-analog-video-synthesis/
+ Documentation/turotiels sur MSP
+  https://docs.cycling74.com/max7/tutorials/01_mspintro
+  http://msp.ucsd.edu/techniques.htm
+  Notes de cours Max/MSP, Faculté de musique de l’université de Montréal, MUS-2321, Olvier Bélanger
 
-https://books.google.ca/books?id=wXmSPPB_c_0C&pg=PA691&lpg=PA691&dq=audio+tovideo+synthesis&source=bl&ots=USOqEJmn4J&sig=prVhKxeUF-80yk8N8njhQgGVOHU&hl=fr&sa=X&ved=2ahUKEwjd5e6v8_LfAhWHUt8KHTqoBIUQ6AEwAHoECAcQAQ#v=onepage&q=audio%20tovideo%20synthesis&f=false
+
+
+
+ Recherches sur la synthèse visuelle :
+  Références :
+
+ Article avec liens sur une compagnie qui développé un module de synthèse vidéo analogique.
+  https://www.electronicbeats.net/the-feed/enter-trippy-world-video-modular-synths/
+
+ Lien ver la compagnie en question:
+  https://lzxindustries.net/
+ 
+ Lien vers le github de la compagnie qui offre sa documentation (schémas, plans, etc):
+  https://github.com/lzxindustries/documentation
+
+ Liens de la communauté LZX
+ https://community.lzxindustries.net/t/using-audio-modules-in-a-video-synth-system/65/2
+ https://community.lzxindustries.net/t/interfacing-with-external-video-sources/47
+ https://community.lzxindustries.net/t/what-do-i-need-to-get-started/49
+ https://community.lzxindustries.net/t/modular-video-synthesis-101/52
+ https://community.lzxindustries.net/t/connecting-your-sync-generator-to-other-modules/28
+
+
+ Site web d'une application basé sur le même modèle que les lien précédents:
+ https://lumen-app.com/
+
+ Page Wikipédia sur la synthèse vidéo:
+ https://en.wikipedia.org/wiki/Video_synthesizer
+
+ Page web dédié à introduire la synthèse vidéo:
+ https://analoguezone.com/blog/introduction-to-analog-video-synthesis/
+
+ https://books.google.ca/books?id=wXmSPPB_c_0C&pg=PA691&lpg=PA691&dq=audio+tovideo+synthesis&source=bl&ots=USOqEJmn4J&sig=prVhKxeUF-80yk8N8njhQgGVOHU&hl=fr&sa=X&ved=2ahUKEwjd5e6v8_LfAhWHUt8KHTqoBIUQ6AEwAHoECAcQAQ#v=onepage&q=audio%20tovideo%20synthesis&f=false
+
+ Synthese video sur Max7
+
+ Processing :
+ Processing; A programming handbook for visual designers and artists, Casey Reas, Ben Fry, MIT Press, Cambridge, Massachusetts/ London, England, 17 aout 2007.
+
+ Fractals :
+ Fractals; Form, Chance and Dimension, Benoit B.Mandelbrot, W.H.Freeman and Company, San Francisco, 1977
+
+
 
 Définitions :
-Signal audio - https://fr.wikipedia.org/wiki/Son_num%C3%A9rique_(musique)
-Numérisation - https://fr.wikipedia.org/wiki/Num%C3%A9risation
-Transformation de Fourier rapide - https://fr.wikipedia.org/wiki/Transformation_de_Fourier_rapide
-Signal MIDI -
-https://fr.wikipedia.org/wiki/Musical_Instrument_Digital_Interface
-Noise Gate -
-https://fr.wikipedia.org/wiki/Noise_gate
+ Signal audio - https://fr.wikipedia.org/wiki/Son_num%C3%A9rique_(musique)
+ Numérisation - https://fr.wikipedia.org/wiki/Num%C3%A9risation
+ Transformation de Fourier rapide - https://fr.wikipedia.org/wiki/Transformation_de_Fourier_rapide
+ 
+ Signal MIDI -
+  https://fr.wikipedia.org/wiki/Musical_Instrument_Digital_Interface
+ 
+ Noise Gate -
+  https://fr.wikipedia.org/wiki/Noise_gate
+
 
 
 1.5. Modèle :
  Le Signal audionumérique:
- Un signal audio numérisé peut être résumé comme suit : Le passage d'un signal analogique à un signal numérique se fait via une conversion analogique -
- numérique, par échantillonnage (prises des valeurs du signal analogique à intervalles de temps constants) et par quantification de chacune des valeurs échantillonnées.
- Dit autrement : à chaque top d'horloge (selon une fréquence choisie), on mesure la valeur du signal analogique (par exemple les volts issus d'un micro ou d'une tête de lecture de disque vinyle)
- et on lui donne une valeur numérique.  
- C’est l’étape de la numérisation : La numérisation est la conversion des informations d'un support (texte, image, audio, vidéo)
- ou d'un signal électrique en données numériques que des dispositifs informatiques ou d'électronique numérique pourront traiter1.
- Les données numériques se définissent comme une suite de caractères et de nombres qui représentent des informations
+  Un signal audio numérisé peut être résumé comme suit : Le passage d'un signal analogique à un signal numérique se fait via une conversion analogique -
+  numérique, par échantillonnage (prises des valeurs du signal analogique à intervalles de temps constants) et par quantification de chacune des valeurs échantillonnées.
+  Dit autrement : à chaque top d'horloge (selon une fréquence choisie), on mesure la valeur du signal analogique (par exemple les volts issus d'un micro ou d'une tête de lecture de disque vinyle)
+  et on lui donne une valeur numérique.  
+  C’est l’étape de la numérisation : La numérisation est la conversion des informations d'un support (texte, image, audio, vidéo)
+  ou d'un signal électrique en données numériques que des dispositifs informatiques ou d'électronique numérique pourront traiter1.
+  Les données numériques se définissent comme une suite de caractères et de nombres qui représentent des informations
  
  La synthèse visuelle:
- La vidéo de synthèse est une forme d'art visuel qui peut être résumé en une image artificielle, que l'on peut créer avec différents procédés comme l'éléctronique, l'informatique, l'optique, etc. 
- L'image peut aussi être animée. On peut donc également parler d'image numérique.
+  La vidéo de synthèse est une forme d'art visuel qui peut être résumé en une image artificielle, que l'on peut créer avec différents procédés comme l'éléctronique, l'informatique, l'optique, etc. 
+  L'image peut aussi être animée. On peut donc également parler d'image numérique.
 
-Les moyens d’analyse :
- Transformation de Fourier rapide :
- La transformation de Fourier rapide (sigle anglais : FFT ou fast Fourier transform) 
- est un algorithme de calcul de la transformation de Fourier discrète (TFD) […]
- Cet algorithme est couramment utilisé en traitement numérique du signal
- pour transformer des données discrètes du domaine temporel dans le domaine fréquentiel,
- en particulier dans les analyseurs de spectre. Son efficacité permet de réaliser des filtrages en modifiant
- le spectre et en utilisant la transformation inverse (filtre à réponse impulsionnelle finie).  
+ Les moyens d’analyse :
+  Transformation de Fourier rapide :
+   La transformation de Fourier rapide (sigle anglais : FFT ou fast Fourier transform) 
+   est un algorithme de calcul de la transformation de Fourier discrète (TFD) […]
+   Cet algorithme est couramment utilisé en traitement numérique du signal
+   pour transformer des données discrètes du domaine temporel dans le domaine fréquentiel,
+   en particulier dans les analyseurs de spectre. Son efficacité permet de réaliser des filtrages en modifiant
+   le spectre et en utilisant la transformation inverse (filtre à réponse impulsionnelle finie).  
 
  Signal MIDI : Le Musical Instrument Digital Interface ou MIDI est un protocole de communication
- et un format de fichier dédiés à la musique, et utilisés pour la communication entre instruments
- électroniques, contrôleurs, séquenceurs, et logiciels de musique.
- Analyseur de phase :
+  et un format de fichier dédiés à la musique, et utilisés pour la communication entre instruments
+  électroniques, contrôleurs, séquenceurs, et logiciels de musique.
+
 
  Gate : Une noise gate (littéralement porte à bruits) est un effet de traitement
- sonore dont le but est d'empêcher les sons parasites du signal entrant de passer à travers
- le circuit audio, dans le but d'obtenir un son le moins parasité possible en sortie. Son utilisation la plus
- typique est d'être réglée pour couper tout signal ne dépassant pas un certain volume ; elle peut être utilisée
- pour éviter d'enregistrer ou d'amplifier les petits bruits de fond sur scène ou en studio : prise de respiration,
- petits chocs et mouvements, etc.
+  sonore dont le but est d'empêcher les sons parasites du signal entrant de passer à travers
+  le circuit audio, dans le but d'obtenir un son le moins parasité possible en sortie. Son utilisation la plus
+  typique est d'être réglée pour couper tout signal ne dépassant pas un certain volume ; elle peut être utilisée
+  pour éviter d'enregistrer ou d'amplifier les petits bruits de fond sur scène ou en studio : prise de respiration,
+  petits chocs et mouvements, etc.
 
 
 1.6. Méthode :
-Un signal audio, une fois numérisé, consiste en une quantité de valeurs qui
+ Un signal audio, une fois numérisé, consiste en une quantité de valeurs qui
  contiennent plusieurs informations pertinentes sur le signal, notamment ;
  l’amplitude général du signal, l’amplitude des fréquences comprises de 0Hz
  jusqu’à 20 000Hz et pouvant même atteindre 48 000 Hz voir plus dans certains cas,
@@ -120,16 +150,74 @@ Un signal audio, une fois numérisé, consiste en une quantité de valeurs qui
  Les différentes valeurs de ces signaux seront analysées en temps réels par le suiveur d’enveloppe,
  l’analyseur FFT, ainsi que la phase ce qui génèrera des données qui pourront ensuite être envoyées
  vers le générateur d’image de synthèse.
- Les valeurs midi seront également envoyées directement au générateur d’image de synthèse, permettant ainsi d’être manipulés par l’utilisateur afin de transformer l’image générée, si désiré.
- Une que fois les données relatives au signaux sonores et MIDI auront traversé l’étape d’analyse, les valeurs continues sortantes seront réorientées vers un générateur d’image de synthèse.
- Celui-ci occupera comme fonction principale la tâche de transformé les signaux reçus afin de créer des éléments visuels. À cette étape, j’aimerais appliquer différents paramètres réglables
- (filtres, effets de distorsion/délais/réverb/gate/etc.), similaire à la façon dont on peut modifier un signal audio. Ces paramètres réglables pourront ainsi être modifiés par la personne utilisant
- le programme afin d’avoir un contrôle sur le résultat visuel final, autant en temps réel que par automations. Idéalement, je voudrais faire en sorte que ces paramètres puissent être modifiés en temps
- réel et que certains (voire tous) puissent être assignés à un contrôleur MIDI (que ce soit le même qui soit utiliser pour faire la musique reçue ou un autre indépendant).
+
+ Les valeurs midi seront également envoyées directement au générateur d’image de synthèse, permettant ainsi d’être manipulés 
+ par l’utilisateur afin de transformer l’image générée, si désiré.
+ Une que fois les données relatives au signaux sonores et MIDI auront traversé l’étape d’analyse, les valeurs continues sortantes
+ seront réorientées vers un générateur d’image de synthèse.
+ Celui-ci occupera comme fonction principale la tâche de transformé les signaux reçus afin de créer des éléments visuels. À cette étape,
+ j’aimerais appliquer différents paramètres réglables
+ (filtres, effets de distorsion/délais/réverb/gate/etc.), similaire à la façon dont on peut modifier un signal audio.
+ Ces paramètres réglables pourront ainsi être modifiés par la personne utilisant
+ le programme afin d’avoir un contrôle sur le résultat visuel final, autant en temps réel que par automations. Idéalement,
+ je voudrais faire en sorte que ces paramètres puissent être modifiés en temps
+ réel et que certains (voire tous) puissent être assignés à un contrôleur MIDI (que ce soit le même qui soit utiliser
+ pour faire la musique reçue ou un autre indépendant).
 
 
  
-1.7. Implémentation :
+1.7. Implémentation : 
+ Pour entreprendre le développement de mon projet j'ai choisi de travailler sur la plateforme Max. Cette dernière permettant de créer des ''patchs'',
+ elle me permet de me concentrer directement dans la confection des différents éléments nécessaires au fonctionnement de mon programme. 
+ Comprennant dès son installation une panoplie d'outils préprogrammés, elle permet à son utilisateur de se concentrer sur l'interaction entre les différentes composantes,
+ plutôt que de consacrer un temps fou à la création de plusieurs modules. De plus, son interface graphique est très instinctive,
+ contrairement à un langage de programmation traditionnel où les lignes de textes ne font que s'accumuler. Ainsi, la courbe d'apprentissage avec Max permet 
+ à son usager de pouvoir réaliser différents projets sans investir une quantité faramineuse dans la mémorisation d'une quantité de variables. 
+ 
+ Afin de me familiariser avec cette méthode de travail, j'ai entrepris différents tutoriels proposés par Max ainsi que d'autres, trouvés sur le web.
+ Ceux-ci m'ont permis de découvrir la simplicité (et la complexité) de cette plateforme, tout en me permettant de me familiariser avec ses principes de fonctionnement
+ et de découvrir les différents outils mis à la disposition de l'utilisateur.Le logiciel Max permet également de créer des plateformes modulaires très facilement
+ puisqu'il est conçu comme un plateforme modulaire, c'est-à-dire que les différents objets n'ont qu'à être connectés entre eux par des ''câbles'' artificiels qui peuvent
+ être branchés et interreliés dans une quasi-infinité de possibilités. Cet aspect est très avantageux dans le cadre de mon projet puisqu'il permet d'effectuer des tests 
+ au fur et a mesure que la programmation avance. On peut ainsi voir le résultat de notre travail en temps réel alors même que l'on manipule les données et les connexions entre les différents
+ élément du programme.
+
 
 1.8. Tests et maintenance : 
+ Les premiers balbutiements de mon programme ont été relativement simple. J'ai commencé par évaluer les différentes façons de récupérer un signal, soit en entré,
+ soit par la lecture d'un fichier son. Différentes options se présentent déjà à cette étape, offrant par la même occasion diverse possibililtés quant au chemin que
+ le signal audio traité prendra. 
+
+ Présentement, il est constitué de 3 tutoriels que j'ai trouvé sur internet et que j'ai reliés entre eux. La première crée une grille générant une espece de glitch en 3D.
+ Les paramètres de celle-ci peuvent être modifiés en temps réel. On peut notamment déterminer la forme générée. On peut également modifier les paramètres de couleur
+ qui apparaintrons dans l'image du glitch.
+
+ Le deuxième est une grille formée de cube, qui sont déplacés en ellipse par l'intervention de la basse d'une piste audio. De plus, il sonts déplacés dans la position
+ Z vers des valeurs positives plus grandes, changeant ainsi la couleur des cubes déplacés de façon linéaire.
+
+ Le troisième quant à lui est littéralement un synthétiseur. Celui-ci n'est pas encore relié au reste de la plateforme.
+
+ La suite des développements du path seront mis-à-jour sur GitHub au fur et à mesure que des avancements pertinents seront faits.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
