@@ -182,6 +182,21 @@ Définitions :
  au fur et a mesure que la programmation avance. On peut ainsi voir le résultat de notre travail en temps réel alors même que l'on manipule les données et les connexions entre les différents
  élément du programme.
 
+ Une première section fut d'abord réaliser, celle-ci générant en premier lieu la fenêtre ou apparait les divers éléments graphiques.
+ L'objet jit.world crée donc cette fenêtre, avec les parametres "@floating 1" afin que la fenêtre soit ouverte comme un pop-up,
+ puis @erase_color 0.0.0. 1. permet de rendre le tout sur un fond noir. Le tout étant régis par un "toggle" pour activer/désactiver la fenêtre.
+ Le toggle est également connecté à un objet Metro qui envoie 80 impulsions par seconde, faisant activer et désactiver l'apparition de world afin de le fair bouger 40 fois par seconde.
+ Le tout est envoyer dans un objet "send" nommé Renderbang.
+
+ Sortant de l'objet Metro se trouve également un objet nommé jit.noise, qui génère un bruit aléatoire. Ce bruit servira à définir les couleurs et la texture du "glitch 3D".
+ Ensuite, un paramètre "jit.> @val 0.9" permet de déclarer la luminance de l'environnement, 0 étant complètement blanc, 1 étant totalement noir. Ce paramètre peut être géré 
+ avec la boîte de valur situé juste au dessus.
+
+ L'objet "Jit.matrix feed" permet de situé des données dans un monde cartésien et de réutilisés ces données.Cet objet enverra des informations quant à la forme que doit prendre
+ le "glitch 3d" par l'envoie à l'objet "jit.gl.gridshape" ainsi qu'au paramètres de position de l'univers du glitch, par l'envoie a la fonction "jit.rota"
+
+ jit.rota permet de spécifier des valeurs comme le point d'ancrage en X et en Y du centre de l'animation, ou alors l'orientation d'une rotation verticale ou horizontale.
+ Est ensuite envoyé dans l'objet "jit.slide" pour terminé sa course dans un retour au "jit.matrix feed"
 
 1.8. Tests et maintenance : 
  Les premiers balbutiements de mon programme ont été relativement simple. J'ai commencé par évaluer les différentes façons de récupérer un signal, soit en entré,
